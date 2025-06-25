@@ -44,6 +44,7 @@ function SettingBar({ label, isLogout }) {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#fff', padding: 20 },
   header: {
+    marginTop: 70,
     backgroundColor: '#8b6fc6',
     borderRadius: 20,
     padding: 20,

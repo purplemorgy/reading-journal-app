@@ -32,9 +32,9 @@ function TabNavigator() {
             tabBarActiveTintColor: '#8b6fc6',
             tabBarInactiveTintColor: 'gray',
     })}>
-      <Tab.Screen name="Library" component={LibraryScreen}  />
+      <Tab.Screen name="Library" component={LibraryScreen}  options={{ headerShown: false }}/>
       <Tab.Screen name="Current Book" component={CurrentBookScreen} />
-      <Tab.Screen name="Profile" component={AccountScreen} />
+      <Tab.Screen name="Profile" component={AccountScreen} options={{ headerShown: false }}/>
   </Tab.Navigator>
   );
 }
@@ -43,10 +43,9 @@ export default function App() {
   return (
     <NavigationContainer >
       <Stack.Navigator >
-        <Stack.Screen name="Tabs" component={TabNavigator} />
-        <Stack.Screen name="JournalEntries" component={JournalEntriesScreen} />
+        <Stack.Screen name="Tabs" component={TabNavigator} options={{ headerShown: false }}/>
+        <Stack.Screen name="JournalEntries" component={JournalEntriesScreen} options={{ headerShown: false }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-//options={{ headerShown: false }}
