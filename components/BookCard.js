@@ -1,18 +1,21 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-export default function BookCard({ status , bookTitle, bookAuthor}) {
-  return (
-    <View style={styles.bookCard}>
+export default function BookCard({ bookTitle, bookAuthor}) {
+    const navigation = useNavigation();
+    return (
+    <TouchableOpacity style={styles.bookCard} onPress={() => navigation.navigate('JournalEntries', { bookTitle, bookAuthor })}> 
       <View style={styles.bookImage} />
       <View style={styles.bookDetails}>
         <Text style={styles.bookTitle}>{bookTitle}</Text>
         <Text style={styles.bookAuthor}>{bookAuthor}</Text>
         
       </View>
-    </View>
-  );
+    </TouchableOpacity>
+    );
 }
+
 
 const styles = StyleSheet.create({
   bookCard: {
@@ -30,7 +33,7 @@ const styles = StyleSheet.create({
   bookImage: {
     width: 50,
     height: 60,
-    backgroundColor: 'black',
+    backgroundColor: 'gray',
     borderRadius: 6,
     marginRight: 12,
 },
