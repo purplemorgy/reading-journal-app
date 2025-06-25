@@ -1,7 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import BookCard from '../components/BookCard';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import JournalEntryList from '../components/JournalEntryList';
 
 export default function JournalEntriesScreen({ navigation, route }) {
   const { bookTitle, bookAuthor } = route.params;
@@ -16,24 +16,9 @@ export default function JournalEntriesScreen({ navigation, route }) {
         <Text style={styles.headerText}>Library</Text>
       </View>
 
-      {/* Book card */}
-      <BookCard bookTitle={bookTitle} bookAuthor={bookAuthor}/>
 
-      {/* Journal entries */}
-      <ScrollView style={styles.entryList}>
-        {[1, 2, 3].map((i) => (
-          <View key={i} style={styles.entry}>
-            <View style={styles.entryHeader}>
-              <Text style={styles.entryTitle}>Entry Title</Text>
-              <View style={styles.dateBox}>
-                <Text style={styles.dateText}>Date</Text>
-              </View>
-            </View>
-            <Text style={styles.entryPreview}>Entry preview…</Text>
-            <View style={styles.divider} />
-          </View>
-        ))}
-      </ScrollView>
+      {/* Journal entry list */}
+      <JournalEntryList bookTitle={bookTitle} bookAuthor={bookAuthor}/>
     </View>
   );
 }
@@ -42,13 +27,13 @@ const styles = StyleSheet.create({
   container: { 
     flex: 1, 
     backgroundColor: 'white', 
-    padding: 20 
 },
   header: {
     marginTop: 70,
     flexDirection: 'row',
     alignItems: 'center',
     paddingBottom: 12,
+    paddingLeft: 20,
   },
   headerText: {
     fontSize: 20,

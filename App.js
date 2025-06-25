@@ -33,7 +33,7 @@ function TabNavigator() {
             tabBarInactiveTintColor: 'gray',
     })}>
       <Tab.Screen name="Library" component={LibraryScreen}  options={{ headerShown: false }}/>
-      <Tab.Screen name="Current Book" component={CurrentBookScreen} />
+      <Tab.Screen name="Current Book" component={CurrentBookScreen} options={{ headerShown: false }}/>
       <Tab.Screen name="Profile" component={AccountScreen} options={{ headerShown: false }}/>
   </Tab.Navigator>
   );
@@ -49,3 +49,4 @@ export default function App() {
     </NavigationContainer>
   );
 }
+//options={{ headerShown: false }}
