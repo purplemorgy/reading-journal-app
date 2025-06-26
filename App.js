@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import AccountScreen from './screens/Account';
 import CurrentBookScreen from './screens/CurrentBook';
+import EntryDisplay from './screens/EntryDisplay';
 import JournalEntriesScreen from './screens/JournalEntries';
 import LibraryScreen from './screens/Library';
 
@@ -45,6 +46,7 @@ export default function App() {
       <Stack.Navigator >
         <Stack.Screen name="Tabs" component={TabNavigator} options={{ headerShown: false }}/>
         <Stack.Screen name="JournalEntries" component={JournalEntriesScreen} options={{ headerShown: false }}/>
+        <Stack.Screen name="Entry" component={EntryDisplay} options={{ headerShown: false }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

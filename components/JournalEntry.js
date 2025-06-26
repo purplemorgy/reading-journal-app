@@ -1,20 +1,21 @@
 import React from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
-import BookCard from './BookCard';
-import JournalEntry from './JournalEntry';
+import { StyleSheet, Text, View } from 'react-native';
 
-export default function JournalEntryList({ bookTitle, bookAuthor}) {
+
+export default function JournalEntry({ entryTitle, entryDate}) {
     return (
     <View style={styles.container}>
     
-        {/* Book card */}
-        <BookCard bookTitle={bookTitle} bookAuthor={bookAuthor}/>
-    
-        {/* Journal entries */}
-          <ScrollView style={styles.entryList}>
-               <JournalEntry entryTitle="Entry 1" entryDate="Date"/>
-               
-          </ScrollView>
+            <View style={styles.entry}>
+            <View style={styles.entryHeader}>
+                <Text style={styles.entryTitle}>{ entryTitle }</Text>
+                <View style={styles.dateBox}>
+                <Text style={styles.dateText}>{ entryDate }</Text>
+                </View>
+            </View>
+            <Text style={styles.entryPreview}>Entry preview…</Text>
+            <View style={styles.divider} />
+            </View>
         </View>
       
     );
