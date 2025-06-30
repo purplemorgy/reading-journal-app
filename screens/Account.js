@@ -1,8 +1,19 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { auth } from '../firebase';
 
 export default function AccountScreen() {
-  return (
+    const handleLogout = async () => {
+        try {
+          await signOut(auth);
+          // Navigation happens automatically
+        } catch (error) {
+          Alert.alert('Error', error.message);
+        }
+      };
+
+    return (
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
@@ -26,20 +37,18 @@ export default function AccountScreen() {
 
       {/* Setting selections */}
       <ScrollView style={styles.settingList}>
-        <SettingBar label="Account Settings" />
-        <SettingBar label="Log Out" isLogout />
+        <TouchableOpacity style={styles.settingItem}>
+            <Text style={styles.settingText}>Account Settings</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.settingItem}  onPress={handleLogout}>
+            <Text style={styles.logoutText}>Log Out</Text>
+        </TouchableOpacity>
       </ScrollView>
     </View>
   );
 }
 
-function SettingBar({ label, isLogout }) {
-  return (
-    <TouchableOpacity style={styles.settingItem}>
-      <Text style={[styles.settingText, isLogout && { color: '#e74c3c' }]}>{label}</Text>
-    </TouchableOpacity>
-  );
-}
+
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#fff', padding: 20 },
@@ -94,4 +103,9 @@ const styles = StyleSheet.create({
     fontSize: 16, 
     color: '#333' 
 },
+logoutText: { 
+    fontSize: 16, 
+    color: '#e74c3c' 
+},
+
 });
